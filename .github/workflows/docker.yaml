@@ -56,8 +56,8 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: Build and push image Aliyun
-      run: |
-        echo "$ALIYUN_REGISTRY_PASSWORD" | docker login -u "$ALIYUN_REGISTRY_USER" --password-stdin "$ALIYUN_REGISTRY"
+      run: 
+        echo "$ALIYUN_ACR_PASSWORD" | docker login -u "$ALIYUN_ACR_USERNAME" --password-stdin "$ALIYUN_ACR_SERVER"
         # 数据预处理,判断镜像是否重名
         declare -A duplicate_images
         declare -A temp_map
